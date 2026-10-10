@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  turbopack: {
+    root: process.cwd(),
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },

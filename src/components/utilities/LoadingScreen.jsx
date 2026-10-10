@@ -150,7 +150,7 @@ export default function LoadingScreen({ onReveal, onComplete }) {
       aria-live="polite"
       aria-label="Loading portfolio"
       onClick={skip}
-      className="fixed inset-0 z-[100] cursor-pointer overflow-hidden select-none"
+      className="fixed inset-0 z-100 cursor-pointer overflow-hidden select-none"
     >
       {/* ── TOP HALF: monogram + name ───────────────────────────── */}
       <div
@@ -240,7 +240,7 @@ export default function LoadingScreen({ onReveal, onComplete }) {
             </AnimatePresence>
             <motion.span
               aria-hidden="true"
-              className="inline-block w-[7px] h-[14px] bg-blue-400 ml-0.5"
+              className="inline-block w-1.75 h-3.5 bg-blue-400 ml-0.5"
               animate={{ opacity: [1, 0, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             />

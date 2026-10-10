@@ -1,7 +1,18 @@
 "use client";
-import { useEffect, useState, useMemo } from "react";
+import { useMemo } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+
+const createSparkles = (sparklesCount, firstColor, secondColor) =>
+  Array.from({ length: sparklesCount }, (_, id) => ({
+    id,
+    x: `${(Math.sin(id * 17.31) * 0.5 + 0.5) * 100}%`,
+    y: `${(Math.sin(id * 29.17) * 0.5 + 0.5) * 100}%`,
+    color: id % 2 === 0 ? firstColor : secondColor,
+    delay: (Math.sin(id * 41.23) * 0.5 + 0.5) * 2,
+    scale: (Math.sin(id * 53.79) * 0.5 + 0.5) + 0.3,
+    lifespan: (Math.sin(id * 67.41) * 0.5 + 0.5) * 10 + 5,
+  }));
 
 const SparklesText = ({
   text,
@@ -10,23 +21,10 @@ const SparklesText = ({
   sparklesCount = 10,
   ...props
 }) => {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const sparkles = useMemo(() => {
-    return Array.from({ length: sparklesCount }).map((_, i) => ({
-      id: i,
-      x: `${Math.random() * 100}%`,
-      y: `${Math.random() * 100}%`,
-      color: Math.random() > 0.5 ? colors.first : colors.second,
-      delay: Math.random() * 2,
-      scale: Math.random() * 1 + 0.3,
-      lifespan: Math.random() * 10 + 5,
-    }));
-  }, [sparklesCount, colors.first, colors.second]);
+  const sparkles = useMemo(
+    () => createSparkles(sparklesCount, colors.first, colors.second),
+    [sparklesCount, colors.first, colors.second]
+  );
 
   return (
     <div
@@ -38,7 +36,7 @@ const SparklesText = ({
       }}
     >
       <span className="relative inline-block z-10">
-        {isClient && sparkles.map((sparkle) => (
+        {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}
         <strong>{text}</strong>
