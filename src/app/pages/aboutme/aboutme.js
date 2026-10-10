@@ -1,68 +1,95 @@
 "use client";
+
 import React from "react";
-import ProfileCard from "@/components/ProfileCard/ProfileCard";
-import TextType from "@/components/TextType";
+import { GraduationCap, MapPin, Sparkles } from "lucide-react";
+
+import ProfileCard from "@/components/sections/ProfileCard/ProfileCard";
+import TextType from "@/components/sections/TextType";
+import FadeInUp from "@/components/animation/FadeInUp";
+import FloatingElement from "@/components/animation/FloatingElement";
+import { education, profile, stats } from "@/data/portfolio";
+
 export default function AboutMe() {
-    return (
-        <div className="mt-10 sm:mt-15 mx-4 sm:mx-auto w-full max-w-[1600px] relative px-4 sm:px-8">
-            <section
-                className="w-full rounded-2xl bg-gray-900/80 border border-gray-700 p-4 sm:p-6 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 group backdrop-blur-sm"
-                id="about"
-            >
-                {/* Shimmer effect matching the skill cards */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(100,100,255,0.05)] to-transparent group-hover:via-[rgba(100,100,255,0.15)] animate-shimmer pointer-events-none"></div>
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
 
-                <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-8 lg:gap-10 pt-0 px-4 sm:px-8 relative z-10">
-                    {/* Right Column (Desktop): Text Content */}
-                    <div className="basis-full lg:basis-7/12 pl-0 lg:pl-8 border-b lg:border-b-0 lg:border-l border-gray-700/50 pb-8 lg:pb-0">
-                        <div className="flex-1 text-left">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-5">
-                                About Me
-                            </h2>
-                            <TextType
-                                text="Hi, I'm Soham! I'm a full-stack developer who loves crafting modern, snappy web applications that are genuinely pleasant to use. I'm always exploring new technologies—right now I'm super interested in integrating Artificial Intelligence and cloud solutions into everyday digital products. With over 10 projects under my belt and an eye for both design and functionality, my goal is to build software that not only looks great, but solves real problems and helps businesses grow."
-                                as="p"
-                                startOnVisible={true}
-                                loop={false}
-                                hideCursorWhileTyping={false}
-                                pauseDuration={100000} // Failsafe to guarantee text never deletes
-                                typingSpeed={18}
-                                className="text-lg sm:text-xl lg:text-[22px] font-normal leading-[1.8] sm:leading-[1.8] mb-6 sm:mb-8 text-gray-200 tracking-wide text-justify sm:text-left"
-                                cursorClassName="text-blue-500 font-bold"
-                            />
+  return (
+    <div className="mx-auto w-full max-w-[1400px] relative px-4 sm:px-8 py-10">
+      <section
+        id="about"
+        className="scroll-mt-24 w-full rounded-2xl bg-gray-900/70 border border-gray-700/70 p-4 sm:p-8 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group backdrop-blur-sm"
+      >
+        <div className="absolute inset-0 bg-linear-to-r from-transparent via-[rgba(100,100,255,0.05)] to-transparent group-hover:via-[rgba(100,100,255,0.12)] animate-shimmer pointer-events-none" />
 
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start text-left gap-y-6 sm:gap-x-16 mb-4 w-full">
-                                <div>
-                                    <h3 className="text-2xl sm:text-3xl md:text-4xl mb-1 text-white font-bold">
-                                        10<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">+</span>
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-gray-300">Projects Finished</p>
-                                </div>
-                                <div className="max-w-[280px]">
-                                    <h3 className="text-2xl sm:text-3xl md:text-3xl mb-1 font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                                        Student
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-gray-300 leading-snug">
-                                        Shri Ramdeobaba College of Engineering and Management, Nagpur
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-8 lg:gap-12 relative z-10">
+          {/* Text */}
+          <FadeInUp
+            delay={0}
+            className="basis-full lg:basis-7/12 pl-0 lg:pl-10 border-b lg:border-b-0 lg:border-l border-gray-700/50 pb-8 lg:pb-0"
+          >
+            <span className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs sm:text-sm font-mono tracking-widest uppercase">
+              <Sparkles className="w-3.5 h-3.5" /> About Me
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
+              Turning ideas into{" "}
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-purple-500">
+                working products
+              </span>
+            </h2>
 
-                    {/* Left Column (Desktop): ProfileCard */}
-                    <div className="basis-full lg:basis-5/12 flex justify-center items-center py-4 lg:py-0">
-                        <ProfileCard
-                            avatarUrl="/soham.png"
-                            name="Soham Darak"
-                            title="Software Engineer"
-                            handle="sohamdarak"
-                            status="Online"
-                            contactText="Contact Me"
-                        />
-                    </div>
+            <TextType
+              text={profile.bio}
+              as="p"
+              startOnVisible={true}
+              loop={false}
+              hideCursorWhileTyping={false}
+              pauseDuration={100000}
+              typingSpeed={14}
+              className="text-base sm:text-lg lg:text-xl font-normal leading-[1.8] mb-7 text-gray-200 text-left"
+              cursorClassName="text-blue-500 font-bold"
+            />
+
+            <div className="flex flex-col sm:flex-row gap-3 mb-7 text-sm text-slate-300">
+              <span className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800/60 border border-slate-700">
+                <GraduationCap className="w-4 h-4 text-blue-400" />
+                {education.degree.replace("B.Tech in ", "B.Tech ")}, RCOEM
+              </span>
+              <span className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800/60 border border-slate-700">
+                <MapPin className="w-4 h-4 text-purple-400" />
+                {profile.location}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                    {s.value}
+                    <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-purple-500">
+                      {s.suffix}
+                    </span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-400 leading-snug">{s.label}</p>
                 </div>
-            </section>
+              ))}
+            </div>
+          </FadeInUp>
+
+          {/* Profile card */}
+          <FloatingElement duration={5} className="basis-full lg:basis-5/12 flex justify-center items-center py-4 lg:py-0">
+            <ProfileCard
+              avatarUrl="/soham.png"
+              name={profile.name}
+              title={profile.title}
+              handle={profile.handle}
+              status="Building"
+              contactText="Contact Me"
+              onContactClick={scrollToContact}
+            />
+          </FloatingElement>
         </div>
-    );
+      </section>
+    </div>
+  );
 }
