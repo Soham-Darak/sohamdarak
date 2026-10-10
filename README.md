@@ -62,7 +62,7 @@ This is my personal portfolio: a fast, responsive, single-page site that shows w
 | **Animation** | GSAP (ScrollTrigger), Motion (Framer Motion) |
 | **Graphics** | OGL (WebGL galaxy background) |
 | **Icons** | Lucide React, React Icons |
-| **Tooling** | pnpm, ESLint |
+| **Tooling** | npm, ESLint |
 | **Hosting** | Vercel |
 
 ## Project Structure
@@ -90,7 +90,7 @@ sohamdarak-portfolio/
 
 ## Getting Started
 
-**Requirements:** [Node.js](https://nodejs.org) 20 or newer and [pnpm](https://pnpm.io) (or use `npx pnpm`).
+**Requirements:** [Node.js](https://nodejs.org) 20 or newer and npm.
 
 ```bash
 # 1. Clone the repo
@@ -98,20 +98,20 @@ git clone https://github.com/Soham-Darak/sohamdarak.git
 cd sohamdarak
 
 # 2. Install dependencies
-pnpm install
+npm install
 
 # 3. Start the dev server
-pnpm dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 | Command | What it does |
 |---------|--------------|
-| `pnpm dev` | Starts the development server |
-| `pnpm build` | Creates the production build |
-| `pnpm start` | Runs the production build locally |
-| `pnpm lint` | Checks the code with ESLint |
+| `npm run dev` | Starts the development server |
+| `npm run build` | Creates the production build |
+| `npm run start` | Runs the production build locally |
+| `npm run lint` | Checks the code with ESLint |
 
 ## Customising the Content
 
@@ -148,7 +148,7 @@ The site is deployed on **Vercel**, and every push to `main` triggers a new prod
 2. Keep the defaults (Next.js is detected automatically).
 3. Deploy.
 
-> **Tip:** Vercel builds on Linux, which is **case-sensitive**, while Windows is not. Make sure import paths match folder and file names exactly (for example `Skills/Skills`, not `skills/skills`).
+> **Tip:** Vercel builds on Linux, which is **case-sensitive**, while Windows is not. Import paths in this project use lowercase filenames so local and production builds resolve the same files.
 
 ## Featured Projects
 

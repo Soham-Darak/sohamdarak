@@ -3,7 +3,7 @@ import { ArrowUp, Mail } from "lucide-react";
 
 import Hero from "@/app/pages/Hero/Hero";
 import AboutMe from "@/app/pages/aboutme/aboutme";
-import SkillsPage from "@/app/pages/skills/Skills";
+import SkillsPage from "@/app/pages/skills/skills";
 import ProjectsPage from "@/app/pages/projects/projects";
 import ExperiencePage from "@/app/pages/experience/experience";
 import EducationPage from "@/app/pages/education/education";
