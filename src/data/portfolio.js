@@ -214,12 +214,12 @@ export const projects = [
   {
     title: "TRAFFICQ",
     subtitle: "Multi-Agent Traffic System",
-    date: "2025",
+    date: "2026",
     categories: ["AI / ML", "Hackathon"],
     icon: "traffic",
     accent: "from-orange-500 to-red-500",
     summary:
-      "Built for the Capgemini Deep Dive Hackathon 2025, where it was selected: a multi-agent system for smarter traffic management.",
+      "Built for the Capgemini Deep Dive Hackathon 2026, where it was selected: a multi-agent system for smarter traffic management.",
     highlights: [
       "GPT-4 agents coordinated through FastAPI and Redis.",
       "XGBoost model for traffic prediction.",
@@ -249,6 +249,15 @@ export const journey = [
     tags: ["AI", "Hackathon", "Teamwork"],
   },
   {
+    type: "achievement",
+    title: "Selected, Capgemini Deep Dive Hackathon 2026",
+    org: "Capgemini",
+    period: "2026",
+    description:
+      "Built TRAFFICQ, a multi-agent traffic system using GPT-4, FastAPI, Redis and XGBoost.",
+    tags: ["GPT-4", "FastAPI", "Redis", "XGBoost"],
+  },
+  {
     type: "leadership",
     title: "Public Relations Coordinator",
     org: "Compusys, Cultural Society CSE, RCOEM",
@@ -268,20 +277,11 @@ export const journey = [
   },
   {
     type: "achievement",
-    title: "Participant, YCCE Inter-College Hackathon 2026",
+    title: "Participant, YCCE Inter-College Hackathon 2025",
     org: "YCCE",
-    period: "2026",
+    period: "2025",
     description: "Competed against teams from across colleges in a time-boxed build.",
     tags: ["Hackathon"],
-  },
-  {
-    type: "achievement",
-    title: "Selected, Capgemini Deep Dive Hackathon 2025",
-    org: "Capgemini",
-    period: "2025",
-    description:
-      "Built TRAFFICQ, a multi-agent traffic system using GPT-4, FastAPI, Redis and XGBoost.",
-    tags: ["GPT-4", "FastAPI", "Redis", "XGBoost"],
   },
 ];
 
